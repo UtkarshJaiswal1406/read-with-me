@@ -1,54 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf7f2;
-  --foreground: #2c2416;
-  --card: #fffdf9;
-  --card-foreground: #2c2416;
-  --popover: #fffdf9;
-  --popover-foreground: #2c2416;
-  --primary: #b45309;
-  --primary-foreground: #fffbeb;
-  --secondary: #f3ebe0;
-  --secondary-foreground: #3d3428;
-  --muted: #ede5d8;
-  --muted-foreground: #6b5d4d;
-  --accent: #e8ddd0;
-  --accent-foreground: #2c2416;
+  --background: #faf5f3;
+  --foreground: #3d2d2a;
+  --card: #fffaf8;
+  --card-foreground: #3d2d2a;
+  --popover: #fffaf8;
+  --popover-foreground: #3d2d2a;
+  --primary: #c1453d;
+  --primary-foreground: #fffaf8;
+  --secondary: #f4dcd7;
+  --secondary-foreground: #4a3835;
+  --muted: #e8d5ce;
+  --muted-foreground: #7a6a63;
+  --accent: #d4a397;
+  --accent-foreground: #3d2d2a;
   --destructive: #b91c1c;
   --destructive-foreground: #fef2f2;
-  --border: #ddd2c4;
-  --input: #ddd2c4;
-  --ring: #b45309;
-  --highlight: #fef3c7;
-  --highlight-active: #fde68a;
-  --reading-bg: #fffdf9;
+  --border: #e0c8c0;
+  --input: #e0c8c0;
+  --ring: #c1453d;
+  --highlight: #f5d9cc;
+  --highlight-active: #e8b5a0;
+  --reading-bg: #fffaf8;
   --radius: 0.75rem;
 }
 
 .dark {
-  --background: #1a1612;
-  --foreground: #f5efe6;
-  --card: #221e19;
-  --card-foreground: #f5efe6;
-  --popover: #221e19;
-  --popover-foreground: #f5efe6;
-  --primary: #d97706;
-  --primary-foreground: #1a1612;
-  --secondary: #2d2720;
-  --secondary-foreground: #f5efe6;
-  --muted: #2d2720;
-  --muted-foreground: #a89885;
-  --accent: #3d3428;
-  --accent-foreground: #f5efe6;
+  --background: #1f1813;
+  --foreground: #f5ede8;
+  --card: #2a2220;
+  --card-foreground: #f5ede8;
+  --popover: #2a2220;
+  --popover-foreground: #f5ede8;
+  --primary: #e85d52;
+  --primary-foreground: #1f1813;
+  --secondary: #3d2f2c;
+  --secondary-foreground: #f5ede8;
+  --muted: #3d2f2c;
+  --muted-foreground: #b8a9a2;
+  --accent: #d4a397;
+  --accent-foreground: #f5ede8;
   --destructive: #ef4444;
   --destructive-foreground: #fef2f2;
-  --border: #3d3428;
-  --input: #3d3428;
-  --ring: #d97706;
-  --highlight: #422006;
-  --highlight-active: #78350f;
-  --reading-bg: #1e1a16;
+  --border: #49403a;
+  --input: #49403a;
+  --ring: #e85d52;
+  --highlight: #4a3835;
+  --highlight-active: #61463f;
+  --reading-bg: #221a17;
 }
 
 @theme inline {
