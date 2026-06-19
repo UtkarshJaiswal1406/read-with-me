@@ -7,7 +7,7 @@ import { ReadingPane } from "@/components/reading/reading-pane";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { useAnalysis } from "@/hooks/use-analysis";
 import { useNotes } from "@/hooks/use-notes";
-import type { ActiveSelection, ReaderMode } from "@/types/analysis";
+import type { ActiveSelection } from "@/types/analysis";
 
 interface ReaderViewProps {
   text: string;
@@ -15,10 +15,9 @@ interface ReaderViewProps {
 }
 
 export function ReaderView({ text, onBack }: ReaderViewProps) {
-  const [mode, setMode] = useState<ReaderMode>("reader");
   const [selection, setSelection] = useState<ActiveSelection | null>(null);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-  const { result, analyze, isLoading, stop } = useAnalysis(mode);
+  const { result, analyze, isLoading, stop } = useAnalysis("reader");
   const { saveNote } = useNotes();
 
   const isMobileViewport = () =>
@@ -33,15 +32,7 @@ export function ReaderView({ text, onBack }: ReaderViewProps) {
     [analyze, text]
   );
 
-  const handleModeChange = useCallback(
-    (nextMode: ReaderMode) => {
-      setMode(nextMode);
-      if (selection) {
-        analyze(selection, text);
-      }
-    },
-    [analyze, selection, text]
-  );
+  
 
   const handleSaveNote = useCallback(
     (noteText: string, explanation: string) => {
@@ -58,12 +49,7 @@ export function ReaderView({ text, onBack }: ReaderViewProps) {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header
-        showBack
-        onBack={onBack}
-        mode={mode}
-        onModeChange={handleModeChange}
-      />
+      <Header showBack onBack={onBack} />
 
       <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col md:flex-row">
         <div className="min-h-[50vh] flex-1 md:min-h-0 md:border-r md:border-border">

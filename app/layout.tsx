@@ -22,7 +22,7 @@ const notoDevanagari = Noto_Sans_Devanagari({
 export const metadata: Metadata = {
   title: "Read with Me",
   description:
-    "Just paste Hindi or Urdu text, and get warm explanations for words and phrases. Made for you &lt;3",
+    "Jo bhi samajhna ho, paste kardo. Made for you &lt;3",
 };
 
 export default function RootLayout({

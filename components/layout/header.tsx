@@ -1,24 +1,14 @@
 "use client";
 
 import { ArrowLeft } from "lucide-react";
-import { ModeToggle } from "@/components/mode-toggle";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
-import type { ReaderMode } from "@/types/analysis";
-
 interface HeaderProps {
   showBack?: boolean;
   onBack?: () => void;
-  mode?: ReaderMode;
-  onModeChange?: (mode: ReaderMode) => void;
 }
 
-export function Header({
-  showBack,
-  onBack,
-  mode,
-  onModeChange,
-}: HeaderProps) {
+export function Header({ showBack, onBack }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6">
@@ -42,9 +32,6 @@ export function Header({
         </div>
 
         <div className="flex items-center gap-2">
-          {mode && onModeChange && (
-            <ModeToggle mode={mode} onModeChange={onModeChange} />
-          )}
           <ThemeToggle />
         </div>
       </div>
