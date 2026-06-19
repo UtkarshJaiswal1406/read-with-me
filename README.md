@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Safha
+
+A modern reading companion for Hindi and Urdu literature. Paste a passage, tap words or highlight phrases, and get warm contextual explanations — like a well-read friend sitting beside you.
+
+## Features
+
+- **Word explanations** — transliteration, part of speech, literal & contextual meaning
+- **Phrase explanations** — literal meaning, natural meaning, author intent, cultural nuance
+- **Paragraph analysis** — summary, tone, character intentions, subtext, literary notes
+- **Dictionary vs Reader mode** — vocabulary focus or natural interpretation
+- **Difficulty detection** — Easy, Moderate, Advanced, Literary with reasons
+- **Streaming AI responses** with loading skeletons
+- **Copy & save notes** (notes stored in localStorage)
+- **Light/dark mode**, responsive layout with mobile explanation drawer
+- **Keyboard support** — Enter/Space on words, Escape to clear selection
+
+## Tech Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui-style components
+- Vercel AI SDK (OpenAI & Anthropic)
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Copy environment variables:
+
+```bash
+cp .env.example .env.local
+```
+
+3. Add your API key to `.env.local`:
+
+```env
+AI_PROVIDER=openai
+OPENAI_API_KEY=sk-...
+AI_MODEL=gpt-4o-mini
+```
+
+Or for Anthropic:
+
+```env
+AI_PROVIDER=anthropic
+ANTHROPIC_API_KEY=sk-ant-...
+AI_MODEL=claude-sonnet-4-20250514
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+  api/analyze/     # Streaming AI analysis endpoint
+  page.tsx         # Entry point
+components/
+  home/            # Landing input
+  reading/         # Reading pane & reader layout
+  explanation/     # Explanation pane & content
+  ui/              # Reusable UI primitives
+hooks/
+  use-analysis.ts  # AI streaming hook
+  use-notes.ts     # Saved notes (localStorage)
+lib/
+  ai/              # Provider config & prompts
+  text/            # Tokenization & selection logic
+  features/        # Future feature registry
+types/
+  analysis.ts      # Shared types
+```
 
-## Learn More
+## Future Features
 
-To learn more about Next.js, take a look at the following resources:
+The codebase is structured to support:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Side-by-side translation
+- Vocabulary history
+- Saved books
+- Personal annotations
+- Reading progress
+- AI chat about the story
+- PDF and EPUB import
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `lib/features/index.ts` for the feature registry.
